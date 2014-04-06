@@ -26,7 +26,14 @@ function QShop() {
     this._init();
 }
 
+/**
+ * [prototype description]
+ */
 QShop.prototype = new App();
+/**
+ * [_init description]
+ * @return {Void}
+ */
 QShop.prototype._init = function() {
     'use strict';
 
@@ -35,6 +42,10 @@ QShop.prototype._init = function() {
     });
 };
 
+/**
+ * [start description]
+ * @return {Void}
+ */
 QShop.prototype.start = function() {
     'use strict';
     var _this = this,

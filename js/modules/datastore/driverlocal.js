@@ -6,6 +6,9 @@
  * Time: 20:02
  */
 
+/**
+ * [DriverLocal description]
+ */
 function DriverLocal() {
     'use strict';
     if (typeof(window.localStorage) !== 'object') {
@@ -37,13 +40,17 @@ function DriverLocal() {
     }
 }
 
+/**
+ * [storage description]
+ * @type {Object}
+ */
 DriverLocal.prototype.storage = null;
 
 /**
  * Adat kikérése a localStorage-ből.
  *
- * @param string A változó neve amire kíváncsiak vagyunk.
- * @return NULL: ha a változó nem létezik, vagy null. Bármi más: a változó értéke.
+ * @param {String] A változó neve amire kíváncsiak vagyunk.
+ * @return {Object} ha a változó nem létezik, vagy null. Bármi más: a változó értéke.
  */
 DriverLocal.prototype.getdata = function(what) {
     'use strict';
@@ -69,10 +76,9 @@ DriverLocal.prototype.getdata = function(what) {
  * Adat mentése a localStorage-ba.
  * A metódus lefigyeli, hogy a paraméterek helyesek e, történik e felülírás.
  * Siker esetén true-val egyébként false-al tér vissza.
- *
- * @param name
- * @param data
- * @return {boolean}
+ * @param  {String} name
+ * @param  {Object} data
+ * @return {Boolean}
  */
 DriverLocal.prototype.setdata = function(name, data) {
     'use strict';
@@ -101,6 +107,11 @@ DriverLocal.prototype.setdata = function(name, data) {
     return true;
 };
 
+/**
+ * [remove description]
+ * @param  {String} what
+ * @return {Boolean}
+ */
 DriverLocal.prototype.remove = function(what) {
     'use strict';
     if (this.storage.removeItem(what) === false) {
@@ -111,6 +122,7 @@ DriverLocal.prototype.remove = function(what) {
 
 /**
  * Amennyiben szükséges tudnunk kell resetelni a LocalStorage-t. Pl logout esetén.
+ * @return {Boolean}
  */
 DriverLocal.prototype.reset = function() {
     'use strict';

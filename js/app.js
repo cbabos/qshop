@@ -14,6 +14,7 @@ function App() {}
 /** 
  * Az alkalmazás nyelveit tárolja
  * @todo nyelvesítés megoldása
+ * @type {Object}
  */
 App.prototype.Langs = {};
 /**
@@ -50,21 +51,49 @@ App.prototype.devHost = 'http://dev.acms.com';
  * @type {String}
  */
 App.prototype.lsqldbname = 'dbname'; // Külön DisplayName-t nem definiálunk.
+/**
+ * [lsqldbversion description]
+ * @type {String}
+ */
 App.prototype.lsqldbversion = '1.0';
+/**
+ * [lSqlDbSize description]
+ * @type {Number}
+ */
 App.prototype.lSqlDbSize = 10; // megabájt!!!
+/**
+ * [store description]
+ * @type {Object}
+ */
 App.prototype.store = null;
 
 /**
  * UI section
  */
+/**
+ * [header description]
+ * @type {Object}
+ */
 App.prototype.header = null;
+/**
+ * [footer description]
+ * @type {Object}
+ */
 App.prototype.footer = null;
 
+/**
+ * [_init description]
+ * @return {Boolean}
+ */
 App.prototype._init = function() {
     'use strict';
     return false;
 };
 
+/**
+ * [getHost description]
+ * @return {String}
+ */
 App.prototype.getHost = function() {
     'use strict';
     if (this.mode === 'dev') {
@@ -74,6 +103,10 @@ App.prototype.getHost = function() {
     }
 };
 
+/**
+ * [hideHeader description]
+ * @return {Void}
+ */
 App.prototype.hideHeader = function() {
     'use strict';
     $('header.uiheader').animate({
@@ -81,6 +114,10 @@ App.prototype.hideHeader = function() {
     }, 100, 'ease-out');
 };
 
+/**
+ * [showHeader description]
+ * @return {Void}
+ */
 App.prototype.showHeader = function() {
     'use strict';
     $('header.uiheader').animate({
@@ -88,6 +125,14 @@ App.prototype.showHeader = function() {
     }, 100, 'ease-in');
 };
 
+/**
+ * [setHeader description]
+ * @param {Bool} show
+ * @param {String} title
+ * @param {Bool} backButton
+ * @param {Object} buttons
+ * @return {Void}
+ */
 App.prototype.setHeader = function(show, title, backButton, buttons) {
     'use strict';
     var _this = this;
@@ -144,6 +189,10 @@ App.prototype.setHeader = function(show, title, backButton, buttons) {
     }
 };
 
+/**
+ * [back description]
+ * @return {Void}
+ */
 App.prototype.back = function() {
     'use strict';
     if ($('div#contentholder').children('.pleft').length > 0) {
@@ -163,6 +212,11 @@ App.prototype.back = function() {
     }
 };
 
+/**
+ * [debuglog description]
+ * @param  {String} msg
+ * @return {Void}
+ */
 App.prototype.debuglog = function(msg) {
     'use strict';
     if (this.mode === 'dev') {
@@ -170,6 +224,11 @@ App.prototype.debuglog = function(msg) {
     }
 };
 
+/**
+ * [removeLastPage description]
+ * @param  {Object} container
+ * @return {Void}
+ */
 App.prototype.removeLastPage = function(container) {
     'use strict';
     if ($(document).find('header').hasClass('withBackButton') === false) {
@@ -177,6 +236,13 @@ App.prototype.removeLastPage = function(container) {
     }
 };
 
+/**
+ * [drawUI description]
+ * @param  {Object} UI
+ * @param  {String} bodyClass
+ * @param  {Object} Container
+ * @return {Void}
+ */
 App.prototype.drawUI = function(UI, bodyClass, Container) {
     'use strict';
     var _this = this;
@@ -235,11 +301,20 @@ App.prototype.drawUI = function(UI, bodyClass, Container) {
     $('body').addClass(bodyClass);
 };
 
+/**
+ * [quit description]
+ * @return {Void}
+ */
 App.prototype.quit = function() {
     'use strict';
     navigator.App.exitApp();
 };
 
+/**
+ * [inheritsFrom description]
+ * @param  {Object} ParentClassOrObject
+ * @return {Object}
+ */
 Function.prototype.inheritsFrom = function(ParentClassOrObject) {
     'use strict';
     if (ParentClassOrObject.constructor === Function) {

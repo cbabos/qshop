@@ -12,6 +12,9 @@
  * Date: 2013.05.25.
  * Time: 16:48
  */
+/**
+ * [DriverXHR description]
+ */
 function DriverXHR() {
 
 }
@@ -19,7 +22,7 @@ function DriverXHR() {
 /**
  * API hívás a szerver oldal felé.
  *
- * @param data Mindenképp tartalmaznia kell egy controller és egy action elemet.
+ * @param {Object} data Mindenképp tartalmaznia kell egy controller és egy action elemet.
  * @returns {$.Deferred}
  */
 DriverXHR.prototype.query = function(data) {

@@ -14,6 +14,9 @@
  * Date: 2013.05.25.
  * Time: 15:34
  */
+/**
+ * [DriverLocalsql description]
+ */
 function DriverLocalsql() {
     'use strict';
     if (typeof(window.App.lsqldbname) !== 'string' || typeof(window.App.lsqldbversion) !== 'string' ||
@@ -31,14 +34,34 @@ function DriverLocalsql() {
     this.openDB(window.App.lsqldbname, window.App.lsqldbversion, window.App.lSqlDbSize * 1024 * 1024);
 }
 
+/**
+ * [isactive description]
+ * @type {Boolean}
+ */
 DriverLocalsql.prototype.isactive = false;
+/**
+ * [dbObj description]
+ * @type {Object}
+ */
 DriverLocalsql.prototype.dbObj = null;
 
+/**
+ * [openDB description]
+ * @param  {String} dbName
+ * @param  {String} dbVersion
+ * @param  {String} dbSize
+ * @return {Void}
+ */
 DriverLocalsql.prototype.openDB = function(dbName, dbVersion, dbSize) {
     'use strict';
     this.dbObj = window.openDatabase(dbName, dbVersion, dbName, dbSize);
 };
 
+/**
+ * [getdata description]
+ * @param  {Object} data
+ * @return {Void}
+ */
 DriverLocalsql.prototype.getdata = function(data) {
     'use strict';
 

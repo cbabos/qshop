@@ -5,12 +5,23 @@
  * Time: 19:09
  */
 /* jshint -W117 */
+/**
+ * [MUser description]
+ */
 function MUser() {
 
 }
 
+/**
+ * [source description]
+ * @type {String}
+ */
 MUser.prototype.source = 'ajax';
 
+/**
+ * [isLoggedin description]
+ * @return {Boolean}
+ */
 MUser.prototype.isLoggedin = function() {
     'use strict';
     var token = this.getToken();
@@ -22,6 +33,10 @@ MUser.prototype.isLoggedin = function() {
     }
 };
 
+/**
+ * [logout description]
+ * @return {Boolean}
+ */
 MUser.prototype.logout = function() {
     'use strict';
     return store.remove({
@@ -29,6 +44,12 @@ MUser.prototype.logout = function() {
     });
 };
 
+/**
+ * [getToken description]
+ * @param  {String} username
+ * @param  {String} password
+ * @return {Object}
+ */
 MUser.prototype.getToken = function(username, password) {
     'use strict';
     var defer = $.Deferred();

@@ -41,12 +41,14 @@ input[type=password] {
   width: 50%;
   font-family: Arial;
   font-size: 100%;
+  color: #fff;
 }
 
 input[type=text]:focus,
 input[type=password]:focus {
   border-bottom: 1px solid #2d5ed0;
   outline: none;
+  color: #fff;
 }
 
 input[type=submit],

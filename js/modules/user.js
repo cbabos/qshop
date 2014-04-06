@@ -12,20 +12,43 @@
  * Time: 18:24
  */
 /* jshint -W117 */
+/**
+ * [User description]
+ */
 function User() {
     'use strict';
     this.data = new MUser();
 }
 
+/**
+ * [form description]
+ * @type {Object}
+ */
 User.prototype.form = null;
+/**
+ * [data description]
+ * @type {Object}
+ */
 User.prototype.data = null;
+/**
+ * [loginDefer description]
+ * @type {Object}
+ */
 User.prototype.loginDefer = null;
 
+/**
+ * [logout description]
+ * @return {Void}
+ */
 User.prototype.logout = function() {
     'use strict';
     this.data.logout();
 };
 
+/**
+ * [forgottenPassword description]
+ * @return {Void}
+ */
 User.prototype.forgottenPassword = function() {
     'use strict';
     var _this = this;
@@ -54,6 +77,10 @@ User.prototype.forgottenPassword = function() {
     this.drawUI(form);
 };
 
+/**
+ * [register description]
+ * @return {Void}
+ */
 User.prototype.register = function() {
     'use strict';
     var _this = this;
@@ -98,6 +125,10 @@ User.prototype.register = function() {
     this.drawUI(form);
 };
 
+/**
+ * [login description]
+ * @return {Object}
+ */
 User.prototype.login = function() {
     'use strict';
     var _this = this;
@@ -171,6 +202,11 @@ User.prototype.login = function() {
     return this.loginDefer;
 };
 
+/**
+ * [checkLogin description]
+ * @param  {Object} response
+ * @return {Void}
+ */
 User.prototype.checkLogin = function(response) {
     'use strict';
     var _this = this;

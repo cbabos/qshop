@@ -26,11 +26,23 @@ DataStore.prototype.local = null;
 DataStore.prototype.lsql = null;
 DataStore.prototype.ajax = null;
 
-/** Ajax híváshoz a modell API-részét tartalmazó controller neve */
+/**
+ * Ajax híváshoz a modell API-részét tartalmazó controller neve
+ * @type {String}
+ */
 DataStore.prototype.apicontroller = '';
-/** Ajax híváshoz a modell API-részét tartalmazó action neve */
+/** 
+ * Ajax híváshoz a modell API-részét tartalmazó action neve
+ * @type {String}
+ */
 DataStore.prototype.apiaction = '';
 
+/**
+ * [getdata description]
+ * @param  {Object} data
+ * @param  {String} driver
+ * @return {Object}
+ */
 DataStore.prototype.getdata = function(data, driver) {
     'use strict';
     /** Ha nem kérünk mást akkor a modell default forrása adja meg a választ */
@@ -53,6 +65,12 @@ DataStore.prototype.getdata = function(data, driver) {
     }
 };
 
+/**
+ * [setdata description]
+ * @param  {Object} data
+ * @param  {string} driver
+ * @return {object}
+ */
 DataStore.prototype.setdata = function(data, driver) {
     'use strict';
     /** Ha nem kérünk mást akkor a modell default forrása adja meg a választ */
@@ -73,6 +91,12 @@ DataStore.prototype.setdata = function(data, driver) {
     }
 };
 
+/**
+ * [remove description]
+ * @param  {Object} data
+ * @param  {String} driver
+ * @return {Object}
+ */
 DataStore.prototype.remove = function(data, driver) {
     'use strict';
     /** Ha nem kérünk mást akkor a modell default forrása adja meg a választ */
