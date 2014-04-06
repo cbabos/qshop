@@ -1,0 +1,102 @@
+/**
+ * User: Csaba
+ * Date: 2013.05.26.
+ * Time: 2:11
+ */
+@import "robotoFont.css";
+h1, h2, h3, h4, h5, h6, header, * {
+    font-family: robotothin, sans-serif;
+}
+
+* {
+    font-size: 100%;
+    color: #afafaf;
+}
+
+body, html {
+    background: #121212;
+}
+
+div.errorMessage {
+    background: #d05752;
+    border-radius: 3px;
+    color: #fff;
+    text-align: left;
+    padding: 0.25em;
+    width: 50%;
+    margin: 0.25em auto;
+    font-size: 100%;
+}
+
+input[type=text], input[type=password] {
+    border: 0px;
+    background: none;
+    border-bottom: 1px solid #9f9f9f;
+    outline: none;
+    padding: 0.3em 0.5em;
+    width: 50%;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+    border-bottom: 1px solid #2d5ed0;
+}
+
+input[type=submit], input[type=button], button {
+    outline: none;
+    color: #fff;
+    border: 0px;
+    background: #2d5ed0;
+    padding: 0.3em 0.5em;
+}
+
+a, a:visited {
+    color: #2d5ed0;
+    text-decoration: none;
+    text-shadow: 0px 0px 5px #000;
+}
+
+.collapsable {
+    -webkit-transform: translate3d(0,0,0);
+    transition: opacity 0.75s;
+    -moz-transition: opacity 0.75s; /* Firefox 4 */
+    -webkit-transition: opacity  0.75s; /* Safari and Chrome */
+    -o-transition: opacity  0.75s; /* Opera */
+}
+
+.slideUp {
+    opacity: 0.1;
+    text-indent: -999em;
+    -webkit-transform: translate3d(0,0,0);
+    background-image: url(../img/ajax-loader.gif) !important;
+    background-repeat: no-repeat  !important;
+    background-position: center center  !important;
+}
+
+div.loginForm {
+    width: 80%;
+    text-align: center;
+    margin: 0px auto;
+    padding-top: 10%;
+}
+
+div.loginForm h1 {
+    font-size: 250%;
+    text-align: center;
+    line-height: 70%;
+    text-shadow: 0px 0px 5px #000;
+}
+
+div.loginForm h1 span {
+    color: #2d5ed0;
+}
+
+div.loginForm h1 small {
+    font-size: 50%;
+    text-transform: lowercase;
+}
+
+div.loginForm input[type=submit], div.loginForm input[type=button],
+div.loginForm button {
+    padding: 0.3em 1.0em;
+    margin: 1em 0 1.5em 0;
+}
