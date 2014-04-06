@@ -30,6 +30,8 @@ input[type=text], input[type=password] {
     border-bottom: 1px solid #9f9f9f;
     padding: 0.3em 0.5em;
     width: 50%;
+    font-family: Arial;
+    font-size: 100%;
 }
 
 input[type=text]:focus, input[type=password]:focus {
@@ -43,6 +45,8 @@ input[type=submit], input[type=button], button {
     border: 0;
     background: #2d5ed0;
     padding: 0.3em 0.5em;
+    font-family: Arial;
+    font-size: 100%;
 }
 
 a, a:visited {
