@@ -6,49 +6,54 @@ module.exports = function(grunt) {
 
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
-        
+
         clean: {
-            dist: [ 'dist' ]
+            dist: ['dist']
         },
-        
+
         jshint: {
             options: {
                 jshintrc: true
             },
-            src: [ 'js/*.js' ]
+            src: ['js/*.js']
         },
         uglify: {
             dist: {
                 options: {
                     compress: true
                 },
-                src: [ 'bower_components/jquery/dist/jquery.js', 'js/*.js' ],
+                src: ['bower_components/jquery/dist/jquery.js', 'js/*.js'],
                 dest: 'dist/js/<%= pkg.name %>.min.js'
             }
         },
-        
+
         autoprefixer: {
             dist: {
                 options: {
-                    browsers: [ 'last 2 version' ]
+                    browsers: ['last 2 version']
                 },
+                expand: true,
+                flatten: true,
                 src: 'css/*.css',
-                dest: 'css/'
+                dest: 'dist/css/'
             }
         },
         csslint: {
-            src: [ 'css/*.css' ],
+            options: {
+                csslintrc: '.csslintrc'
+            },
+            src: ['css/*.css'],
         },
         cssmin: {
             dist: {
-                src: [ 'css/*.css' ],
+                src: ['dist/css/*.css'],
                 dest: 'dist/css/<%= pkg.name %>.min.css'
             }
         },
-        
+
         processhtml: {
             dist: {
-                src: [ 'index.html' ],
+                src: ['index.html'],
                 dest: 'dist/index.html'
             }
         },
@@ -63,13 +68,13 @@ module.exports = function(grunt) {
                 }
             }
         }
-        
+
     });
 
     grunt.registerTask('default', [
         'clean',
         'jshint', 'uglify',
-        'autoprefixer', 'csslint', 'cssmin',
+        'csslint', 'autoprefixer', 'cssmin',
         'processhtml', 'htmlmin',
     ]);
 

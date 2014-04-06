@@ -2,8 +2,6 @@
  * YourWeb MobileApp/QShop.js
  *
  * A script a QShop mobilApp fő JavaScript vezérlője.
- * LGPL licence alatt szabadon felhasználható annak megkötései mellett.
- * Vonatkozó licence: http://www.gnu.org/licenses/lgpl.txt
  *
  * Szerző: Babos Csaba, cbabos
  */

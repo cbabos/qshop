@@ -5,12 +5,29 @@
 	<meta http-equiv="Content-type" content="text/html; charset=UTF-8"/>
 	<meta http-equiv="Description" content="It's a little mobile Application, that handles the shopping request for colleagues at the workplace, and send it to the One Man who always buy stuff for us :) " />
 	<meta name="viewport" content="initial-scale=1" />
-
+	
+	<!-- build:css css/QShop.min.css -->
 	<link rel="stylesheet" href="css/engine.css" />
-	<link rel="stylesheet" href="css/QShop-main.css" />
+	<link rel="stylesheet" href="css/qshop-main.css" />
+	<link rel="stylesheet" href="css/robotofont.css" />
+	<!-- /build -->
 </head>
 <body>
-	<div id="applicationholder"><!-- Application place --></div>
+	<div id="applicationholder">
+		<!-- Application place -->
+	</div>
+	
+	<script>
+		$(document).ready(function () {
+			'use strict';
+			
+			window.App = new QShop();
+			window.store = new DataStore();
+			window.App.start();
+		});
+	</script>
+	
+	<!-- build:js js/QShop.min.js -->
 	<script src="bower_components/jquery/dist/jquery.js"></script>
 	<script src="js/app.js"></script>
 	<script src="js/qshop.js"></script>
@@ -20,12 +37,6 @@
 	<script src="js/modules/datastore/driverxhr.js"></script>
 	<script src="js/modules/datastore/datastore.js"></script>
 	<script src="js/modules/models/muser.js"></script>
-	<script>
-		$(document).ready(function () {
-			window.App = new QShop();
-			window.store = new DataStore();
-			window.App.start();
-		});
-	</script>
+	<!-- /build -->
 </body>
 </html>

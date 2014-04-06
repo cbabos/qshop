@@ -3,21 +3,17 @@
  * Date: 2013.05.26.
  * Time: 2:11
  */
-@import "robotofont.css";
-h1, h2, h3, h4, h5, h6, header, * {
+h1, h2, h3, h4, h5, h6, header {
     font-family: robotothin, sans-serif;
 }
 
-* {
+body, html {
     font-size: 100%;
+    background: #121212;
     color: #afafaf;
 }
 
-body, html {
-    background: #121212;
-}
-
-div.errormessage {
+.errormessage {
     background: #d05752;
     border-radius: 3px;
     color: #fff;
@@ -29,22 +25,22 @@ div.errormessage {
 }
 
 input[type=text], input[type=password] {
-    border: 0px;
+    border: 0;
     background: none;
     border-bottom: 1px solid #9f9f9f;
-    outline: none;
     padding: 0.3em 0.5em;
     width: 50%;
 }
 
 input[type=text]:focus, input[type=password]:focus {
     border-bottom: 1px solid #2d5ed0;
+    outline: none;
 }
 
 input[type=submit], input[type=button], button {
     outline: none;
     color: #fff;
-    border: 0px;
+    border: 0;
     background: #2d5ed0;
     padding: 0.3em 0.5em;
 }
@@ -52,21 +48,18 @@ input[type=submit], input[type=button], button {
 a, a:visited {
     color: #2d5ed0;
     text-decoration: none;
-    text-shadow: 0px 0px 5px #000;
+    text-shadow: 0 0 5px #000;
 }
 
 .collapsable {
-    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
     transition: opacity 0.75s;
-    -moz-transition: opacity 0.75s; /* Firefox 4 */
-    -webkit-transition: opacity  0.75s; /* Safari and Chrome */
-    -o-transition: opacity  0.75s; /* Opera */
 }
 
 .slideup {
     opacity: 0.1;
     text-indent: -999em;
-    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
     background-image: url(../img/ajax-loader.gif) !important;
     background-repeat: no-repeat  !important;
     background-position: center center  !important;
@@ -75,7 +68,7 @@ a, a:visited {
 div.loginform {
     width: 80%;
     text-align: center;
-    margin: 0px auto;
+    margin: 0 auto;
     padding-top: 10%;
 }
 
@@ -83,7 +76,7 @@ div.loginform h1 {
     font-size: 250%;
     text-align: center;
     line-height: 70%;
-    text-shadow: 0px 0px 5px #000;
+    text-shadow: 0 0 5px #000;
 }
 
 div.loginform h1 span {

@@ -2,9 +2,6 @@
  * YourWeb MobileApp/App.js
  *
  * A script a YourWeb mobilApp készítésekor való használatra készült.
- * LGPL licence alatt szabadon felhasználható annak megkötései mellett.
- * Vonatkozó licence: http://www.gnu.org/licenses/lgpl.txt
- *
  * Szerző: Babos Csaba, cbabos
  */
 
@@ -149,8 +146,8 @@ App.prototype.setHeader = function(show, title, backButton, buttons) {
 
 App.prototype.back = function() {
     'use strict';
-    if ($('div#contentholder').children('.pleft').length > 0) {
-        $('div#contentholder').children('.pcenter').addClass('pright').removeClass('pcenter')
+    if ($('div.contentholder').children('.pleft').length > 0) {
+        $('div.contentholder').children('.pcenter').addClass('pright').removeClass('pcenter')
             .on('transitionend', function() {
                 $(this).remove();
             }).on('oTransitionEnd', function() {
@@ -158,7 +155,7 @@ App.prototype.back = function() {
             }).on('webkitTransitionEnd', function() {
                 $(this).remove();
             });
-        $('div#contentholder').children('.pleft').addClass('pcenter').removeClass('pleft');
+        $('div.contentholder').children('.pleft').addClass('pcenter').removeClass('pleft');
     } else {
         if (window.confirm('Biztosan ki szeretnél lépni?')) {
             this.quit();
@@ -184,10 +181,10 @@ App.prototype.drawUI = function(UI, bodyClass, Container) {
     'use strict';
     var _this = this;
 
-    if (typeof(Container) === 'undefined' && $('div#contentholder').length === 0) {
+    if (typeof(Container) === 'undefined' && $('div.contentholder').length === 0) {
         Container = $('<div></div>').attr('id', 'contentholder');
     } else if (typeof(Container) === 'undefined') {
-        Container = $('div#contentholder');
+        Container = $('div.contentholder');
     }
 
     var showAnim = true,

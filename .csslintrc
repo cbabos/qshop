@@ -1,0 +1,10 @@
+{
+	"ids": false,
+	"compatible-vendor-prefixes": false,
+	"important": false,
+	"box-model": false,
+	"outline-none": false,
+	"text-indent": false,
+	"qualified-headings": false,
+	"unique-headings": false
+}
