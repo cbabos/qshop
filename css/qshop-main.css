@@ -58,7 +58,6 @@ a, a:visited {
 .collapsable {
     transform: translate3d(0,0,0);
     transition: opacity 0.75s;
-    -webkit-transition: opacity 0.75s;
 }
 
 .slideup {

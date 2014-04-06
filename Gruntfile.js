@@ -11,6 +11,13 @@ module.exports = function(grunt) {
             dist: ['dist']
         },
 
+        copy: {
+            dist: {
+                src: ['font/*', 'img/*'],
+                dest: 'dist/',
+            },
+        },
+
         jshint: {
             options: {
                 jshintrc: true
@@ -72,7 +79,7 @@ module.exports = function(grunt) {
     });
 
     grunt.registerTask('default', [
-        'clean',
+        'clean', 'copy',
         'jshint', 'uglify',
         'csslint', 'autoprefixer', 'cssmin',
         'processhtml', 'htmlmin',
