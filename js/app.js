@@ -14,18 +14,44 @@
  */
 function App() {}
 
-
+/** 
+ * Az alkalmazás nyelveit tárolja
+ * @todo nyelvesítés megoldása
+ */
 App.prototype.Langs = {};
+/**
+ * Az alkalmazás ebben a holderben fog megjelenni.
+ * @type {Object}
+ */
 App.prototype.holder = $("div#applicationholder");
+/**
+ * Az alkalmazáson belüli helyváltoztatási állapotokat tároljuk
+ * (aka window.history egy mobilappnak)
+ * @type {Array}
+ */
 App.prototype.history = []; // Verem, mindig a legutolsóra tudunk visszamenni vele.
 
-// Fejlesztési / Éles környezet: dev / prod
-App.prototype.mode = "dev";
-App.prototype.mode = "prod"; // Csak éles használathoz!
+/**
+ * Környezet beállítása (dev vagy prod mód)
+ * @type {String}
+ */
+App.prototype.mode = "prod";
 
+/** 
+ * Éles környezet API url-je
+ * @type {String}
+ */
 App.prototype.prodHost = "http://acms.yourweb.hu";
+/** 
+ * Fejlesztői környezet API url-je
+ * @type {String}
+ */
 App.prototype.devHost = "http://dev.acms.com";
 
+/** 
+ * LocalStorage adatbázis neve.
+ * @type {String}
+ */
 App.prototype.lsqldbname = "dbname"; // Külön DisplayName-t nem definiálunk.
 App.prototype.lsqldbversion = "1.0";
 App.prototype.lSqlDbSize = 10 // megabájt!!!;
