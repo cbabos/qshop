@@ -1,7 +1,7 @@
 /** 
- * YourWeb MobileApp/QShop.js
- * 
- * A script a QShop mobilapp fő JavaScript vezérlője.
+ * YourWeb Mobileapp/qshop.js
+ *
+ * A script a qshop mobilapp fő JavaScript vezérlője.
  * LGPL licence alatt szabadon felhasználható annak megkötései mellett.
  * Vonatkozó licence: http://www.gnu.org/licenses/lgpl.txt
  *
@@ -14,55 +14,56 @@
  */
 
 /**
- * Az App objektum kezeli az alkalmazás fő vezérlését.
+ * Az app objektum kezeli az alkalmazás fő vezérlését.
  * Támogatja a fejlesztői / produkciós módokat, külön API elérési domainekkel.
  */
-QShop.prototype = new App();
-function QShop() {
-	/** App specifikus beállítások */
-	this.lSqlDbName = "QShop";
-	this.lSqlDbVersion = "1.0";
+qshop.prototype = new app();
 
-	/** Elindítjuk az _init metódust. */
-	this._init();
+function qshop() {
+    /** app specifikus beállítások */
+    this.lsqldbname = "qshop";
+    this.lsqldbversion = "1.0";
+
+    /** Elindítjuk az _init metódust. */
+    this._init();
 }
 
-QShop.prototype._init = function () {
-	var _this = this;
+qshop.prototype._init = function() {
+    var _this = this;
 
-	/** Adattároló */
-	//this.store = new DataStore();
+    /** Adattároló */
+    //this.store = new datastore();
 
 
-	document.addEventListener("backbutton", function () {
-		window.app.back();
-	});
+    document.addEventListener("backbutton", function() {
+        window.app.back();
+    });
 }
 
-QShop.prototype.start = function () {
-	var _this = this;
-	user = new User();
+qshop.prototype.start = function() {
+    var _this = this;
+    user = new User();
 
-	if (user.data.isLoggedin() == false) {
-		var login = user.login();
-		login.done(function () {
-			_this.drawUI(
-				$("<div>Bejelentkezett</div>").append(
-					$("<button>Kijelentkezés</button>").click(function () {
-						user.logout();
-						window.app.start();
-					})
-				)
-			);
-		});
-	} else {
-		_this.drawUI(
-			$("<div>Bejelentkezett</div>").append(
-				$("<button>Kijelentkezés</button>").click(function () {
-					user.logout();
-					window.app.start();
-				})
-			)
-		);
-	}
+    if (user.data.isLoggedin() == false) {
+        var login = user.login();
+        login.done(function() {
+            _this.drawUI(
+                $("<div>Bejelentkezett</div>").append(
+                    $("<button>Kijelentkezés</button>").click(function() {
+                        user.logout();
+                        window.app.start();
+                    })
+                )
+            );
+        });
+    } else {
+        _this.drawUI(
+            $("<div>Bejelentkezett</div>").append(
+                $("<button>Kijelentkezés</button>").click(function() {
+                    user.logout();
+                    window.app.start();
+                })
+            )
+        );
+    }
 }

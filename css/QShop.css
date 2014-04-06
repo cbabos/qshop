@@ -3,7 +3,7 @@
  * Date: 2013.05.26.
  * Time: 2:11
  */
-@import "robotoFont.css";
+@import "robotofont.css";
 h1, h2, h3, h4, h5, h6, header, * {
     font-family: robotothin, sans-serif;
 }
@@ -17,7 +17,7 @@ body, html {
     background: #121212;
 }
 
-div.errorMessage {
+div.errormessage {
     background: #d05752;
     border-radius: 3px;
     color: #fff;
@@ -63,7 +63,7 @@ a, a:visited {
     -o-transition: opacity  0.75s; /* Opera */
 }
 
-.slideUp {
+.slideup {
     opacity: 0.1;
     text-indent: -999em;
     -webkit-transform: translate3d(0,0,0);
@@ -72,31 +72,31 @@ a, a:visited {
     background-position: center center  !important;
 }
 
-div.loginForm {
+div.loginform {
     width: 80%;
     text-align: center;
     margin: 0px auto;
     padding-top: 10%;
 }
 
-div.loginForm h1 {
+div.loginform h1 {
     font-size: 250%;
     text-align: center;
     line-height: 70%;
     text-shadow: 0px 0px 5px #000;
 }
 
-div.loginForm h1 span {
+div.loginform h1 span {
     color: #2d5ed0;
 }
 
-div.loginForm h1 small {
+div.loginform h1 small {
     font-size: 50%;
     text-transform: lowercase;
 }
 
-div.loginForm input[type=submit], div.loginForm input[type=button],
-div.loginForm button {
+div.loginform input[type=submit], div.loginform input[type=button],
+div.loginform button {
     padding: 0.3em 1.0em;
     margin: 1em 0 1.5em 0;
 }
