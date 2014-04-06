@@ -1,0 +1,116 @@
+/**
+ * User: Csaba
+ * Date: 2013.05.26.
+ * Time: 2:11
+ */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+header {
+  font-family: robotothin, sans-serif;
+}
+
+body,
+html {
+  font-size: 100%;
+  background: #121212;
+  color: #afafaf;
+}
+
+.errormessage {
+  background: #d05752;
+  border-radius: 3px;
+  color: #fff;
+  text-align: left;
+  padding: 0.25em;
+  width: 50%;
+  margin: 0.25em auto;
+  font-size: 100%;
+}
+
+input[type=text],
+input[type=password] {
+  border: 0;
+  background: none;
+  border-bottom: 1px solid #9f9f9f;
+  padding: 0.3em 0.5em;
+  width: 50%;
+  font-family: Arial;
+  font-size: 100%;
+}
+
+input[type=text]:focus,
+input[type=password]:focus {
+  border-bottom: 1px solid #2d5ed0;
+  outline: none;
+}
+
+input[type=submit],
+input[type=button],
+button {
+  outline: none;
+  color: #fff;
+  border: 0;
+  background: #2d5ed0;
+  padding: 0.3em 0.5em;
+  font-family: Arial;
+  font-size: 100%;
+}
+
+a,
+a:visited {
+  color: #2d5ed0;
+  text-decoration: none;
+  text-shadow: 0 0 5px #000;
+}
+
+.collapsable {
+  -webkit-transform: translate3d(0,0,0);
+  transform: translate3d(0,0,0);
+  transition: opacity 0.75s;
+  -webkit-transition: opacity 0.75s;
+}
+
+.slideup {
+  opacity: 0.1;
+  text-indent: -999em;
+  -webkit-transform: translate3d(0,0,0);
+  transform: translate3d(0,0,0);
+  background-image: url(../img/ajax-loader.gif) !important;
+  background-repeat: no-repeat  !important;
+  background-position: center center  !important;
+}
+
+div.loginform {
+  width: 80%;
+  text-align: center;
+  margin: 0 auto;
+  padding-top: 10%;
+}
+
+div.loginform h1 {
+  font-size: 250%;
+  text-align: center;
+  line-height: 70%;
+  text-shadow: 0 0 5px #000;
+}
+
+div.loginform h1 span {
+  color: #2d5ed0;
+}
+
+div.loginform h1 small {
+  font-size: 50%;
+  text-transform: lowercase;
+}
+
+div.loginform input[type=submit],
+div.loginform input[type=button],
+div.loginform button {
+  padding: 0.3em 1.0em;
+  margin: 1em 0 1.5em 0;
+}

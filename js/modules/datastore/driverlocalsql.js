@@ -3,7 +3,7 @@
  * Gyakorlatilag egy extension, ami a PhoneGap beépített SQL kezelőjét használja.
  * FIGYELEM!
  * Androidon a következő jogosultság szükségeltetik (App/res/xml/config.xml):
- *  <plugin name="Storage" value="org.apache.cordova.Storage" />
+ *  <plugin name='Storage' value='org.apache.cordova.Storage' />
  *
  * Minden config variable-t az App fő js-ében (eg.: <projectname>.js ami az App.js-ből extendelt) definiálunk.
  *
@@ -15,14 +15,15 @@
  * Time: 15:34
  */
 function DriverLocalsql() {
-    if (typeof(window.App.lsqldbname) != "string" || typeof(window.App.lsqldbversion) != "string" ||
-        typeof(window.App.lSqlDbSize) != "number") {
-        window.App.debuglog("Nincs definiálva az adatbázis neve és/vagy verziója és/vagy mérete!");
+    'use strict';
+    if (typeof(window.App.lsqldbname) !== 'string' || typeof(window.App.lsqldbversion) !== 'string' ||
+        typeof(window.App.lSqlDbSize) !== 'number') {
+        window.App.debuglog('Nincs definiálva az adatbázis neve és/vagy verziója és/vagy mérete!');
         return false;
     }
 
-    if (typeof(window.openDatabase) != "function") {
-        window.App.debuglog("Úgy tűnik nincs betöltve a PhoneGap storage pluginje.");
+    if (typeof(window.openDatabase) !== 'function') {
+        window.App.debuglog('Úgy tűnik nincs betöltve a PhoneGap storage pluginje.');
         return false;
     }
 
@@ -34,9 +35,12 @@ DriverLocalsql.prototype.isactive = false;
 DriverLocalsql.prototype.dbObj = null;
 
 DriverLocalsql.prototype.openDB = function(dbName, dbVersion, dbSize) {
+    'use strict';
     this.dbObj = window.openDatabase(dbName, dbVersion, dbName, dbSize);
-}
+};
 
 DriverLocalsql.prototype.getdata = function(data) {
+    'use strict';
 
-}
+    console.log(data);
+};

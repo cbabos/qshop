@@ -23,22 +23,23 @@ function DriverXHR() {
  * @returns {$.Deferred}
  */
 DriverXHR.prototype.query = function(data) {
+    'use strict';
     var defer = new $.Deferred();
-    if (typeof(data.controller) == "undefined" || typeof(data.action) == "undefined") {
-        window.App.debuglog("Érvénytelen XHR hívási kísérlet, nincs controller és/vagy action");
+    if (typeof(data.controller) === 'undefined' || typeof(data.action) === 'undefined') {
+        window.App.debuglog('Érvénytelen XHR hívási kísérlet, nincs controller és/vagy action');
         defer.resolve(false);
         return defer;
     }
 
     $.ajax({
-        url: window.App.getHost() + "/" + data.controller + "/api/" + data.action,
+        url: window.App.getHost() + '/' + data.controller + '/api/' + data.action,
         data: data,
-        dataType: "json",
-        type: "post",
+        dataType: 'json',
+        type: 'post',
         success: function(response) {
             defer.resolve(response);
         }
     });
 
     return defer;
-}
+};

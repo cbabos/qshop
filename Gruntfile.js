@@ -15,14 +15,14 @@ module.exports = function(grunt) {
             options: {
                 jshintrc: true
             },
-            src: ['js/*.js']
+            src: ['js/**/*.js']
         },
         uglify: {
             dist: {
                 options: {
                     compress: true
                 },
-                src: ['bower_components/jquery/dist/jquery.js', 'js/*.js'],
+                src: ['bower_components/jquery/dist/jquery.js', 'js/**/*.js'],
                 dest: 'dist/js/<%= pkg.name %>.min.js'
             }
         },
@@ -35,7 +35,7 @@ module.exports = function(grunt) {
                 expand: true,
                 flatten: true,
                 src: 'css/*.css',
-                dest: 'dist/css/'
+                dest: 'css/autoprefixed/'
             }
         },
         csslint: {
@@ -46,7 +46,7 @@ module.exports = function(grunt) {
         },
         cssmin: {
             dist: {
-                src: ['dist/css/*.css'],
+                src: ['css/autoprefixed/*.css'],
                 dest: 'dist/css/<%= pkg.name %>.min.css'
             }
         },
