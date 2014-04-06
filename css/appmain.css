@@ -1,0 +1,89 @@
+/**
+ * User: Csaba
+ * Date: 2013.05.11.
+ * Time: 17:04
+ */
+*, textarea {
+    font-family: Arial, sans-serif;
+}
+
+html, body {
+    margin: 0px;
+    padding: 0px;
+    overflow: hidden;
+}
+
+div#applicationholder {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+header.uiheader {
+    height: 2.2em;
+    padding: 0 1em;
+    overflow: hidden;
+    background: #000;
+}
+
+header.uiheader span.title {
+    float: left;
+    text-overflow: ellipsis;
+    line-height: 2.2em;
+    font-size: 100%;
+    color: #fff;
+}
+
+header.uiheader span.backbuttonholder {
+    padding: 0.2em;
+    float: left;
+    margin-right: 0.5em;
+}
+
+header.uiheader span.buttons button,
+header.uiheader span.backbuttonholder button {
+    width: 1.8em;
+    height: 1.8em;
+    display: block;
+    background: #2d5ed0;
+}
+
+header.uiheader span.backbuttonholder button {
+    background: #2d5ed0 url(../img/iBack.png) no-repeat center center;
+}
+
+header.uiheader span.buttons {
+    float: right;
+    padding: 0.2em;
+}
+
+div#contentholder {
+    padding: 1em 1.2em;
+}
+
+div.page {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-transform: translate3d(0,0,0);
+    /*-webkit-transition-duration: 0.75s;*/
+    -webkit-transition: all 0.75s;
+}
+
+div.pleft {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    opacity: 0;
+}
+
+div.pcenter {
+    -webkit-transform: translate3d(0,0,0);
+    opacity: 1;
+}
+
+div.pright {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    opacity: 0;
+}
+
