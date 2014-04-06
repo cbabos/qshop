@@ -14,7 +14,7 @@
 /* jshint -W117 */
 function User() {
     'use strict';
-    this.data = new Muser();
+    this.data = new MUser();
 }
 
 User.prototype.form = null;
@@ -110,7 +110,7 @@ User.prototype.login = function() {
 
         _this.form = $('<div></div>').addClass('loginform').append(
             /** Logo */
-            $('<h1><span>Q</span> Shop <br /><small>What you need to do now ? </small></h1>')
+            $('<h1><span>Q</span>Shop <br /><small>What you need to do now?</small></h1>')
         ).append(
             /** Form */
             $('<form></form>').append(
