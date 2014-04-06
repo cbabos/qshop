@@ -17,16 +17,6 @@
 		<!-- Application place -->
 	</div>
 	
-	<script>
-		$(document).ready(function () {
-			'use strict';
-			
-			window.App = new QShop();
-			window.store = new DataStore();
-			window.App.start();
-		});
-	</script>
-	
 	<!-- build:js js/QShop.min.js -->
 	<script src="bower_components/jquery/dist/jquery.js"></script>
 	<script src="js/app.js"></script>
@@ -38,5 +28,16 @@
 	<script src="js/modules/datastore/datastore.js"></script>
 	<script src="js/modules/models/muser.js"></script>
 	<!-- /build -->
+	
+	<script>
+		$(document).ready(function () {
+			'use strict';
+			
+			window.App = new QShop();
+			window.store = new DataStore();
+			window.App.start();
+		});
+	</script>
+	
 </body>
 </html>
