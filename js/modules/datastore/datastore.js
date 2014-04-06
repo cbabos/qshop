@@ -4,7 +4,7 @@
  *  - ajax  (backendtől xhr úton kéri az adatot)
  *  - lsql  (localSQL)
  *
- * Minden kérés a datastore függvényein fut keresztül, azonban a modellek dönthetnek úgy,
+ * Minden kérés a DataStore függvényein fut keresztül, azonban a modellek dönthetnek úgy,
  * hogy valamely adatkérést a modell beállításától függetlenül másik driveren keresztül kérik,
  * vagy akár egy időben több driverből is kérhetik ugyanazt a lekérést.
  * Ezáltal a local adatstruktúrák frissíthetővé válnak az ajax driver másodlagos meghívásával.
@@ -13,23 +13,23 @@
  * Date: 2013.05.16.
  * Time: 19:14
  */
-function datastore() {
-    this.local = new driverlocal();
-    this.lsql = new driverlocalsql();
-    this.ajax = new driverxhr();
+function DataStore() {
+    this.local = new DriverLocal();
+    this.lsql = new DriverLocalsql();
+    this.ajax = new DriverXHR();
 }
 
-datastore.prototype.source = "local";
-datastore.prototype.local = null;
-datastore.prototype.lsql = null;
-datastore.prototype.ajax = null;
+DataStore.prototype.source = "local";
+DataStore.prototype.local = null;
+DataStore.prototype.lsql = null;
+DataStore.prototype.ajax = null;
 
 /** Ajax híváshoz a modell API-részét tartalmazó controller neve */
-datastore.prototype.apicontroller = "";
+DataStore.prototype.apicontroller = "";
 /** Ajax híváshoz a modell API-részét tartalmazó action neve */
-datastore.prototype.apiaction = "";
+DataStore.prototype.apiaction = "";
 
-datastore.prototype.getdata = function(data, driver) {
+DataStore.prototype.getdata = function(data, driver) {
     /** Ha nem kérünk mást akkor a modell default forrása adja meg a választ */
     if (typeof(driver) === "undefined") {
         driver = this.source;
@@ -55,7 +55,7 @@ datastore.prototype.getdata = function(data, driver) {
     }
 }
 
-datastore.prototype.setdata = function(data, driver) {
+DataStore.prototype.setdata = function(data, driver) {
     /** Ha nem kérünk mást akkor a modell default forrása adja meg a választ */
     if (typeof(driver) === "undefined") {
         driver = this.source;
@@ -78,7 +78,7 @@ datastore.prototype.setdata = function(data, driver) {
     }
 }
 
-datastore.prototype.remove = function(data, driver) {
+DataStore.prototype.remove = function(data, driver) {
     /** Ha nem kérünk mást akkor a modell default forrása adja meg a választ */
     if (typeof(driver) === "undefined") {
         driver = this.source;

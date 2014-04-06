@@ -6,28 +6,28 @@
  * Time: 20:02
  */
 
-function driverlocal() {
+function DriverLocal() {
     if (typeof(window.localStorage) !== "object") {
-        window.app.debuglog("*************** Nem létezik a LocalStorage!!! ******************");
+        window.App.debuglog("*************** Nem létezik a LocalStorage!!! ******************");
         this.storage = {
             /** fallback storage object */
             setItem: function(what) {
-                window.app.debuglog("Nincs LocalStorage, fallback storage él.");
+                window.App.debuglog("Nincs LocalStorage, fallback storage él.");
                 return false;
             },
             /** fallback storage object */
             getItem: function(name, data) {
-                window.app.debuglog("Nincs LocalStorage, fallback storage él.");
+                window.App.debuglog("Nincs LocalStorage, fallback storage él.");
                 return false;
             },
             /** fallback storage object */
             reset: function() {
-                window.app.debuglog("Nincs LocalStorage, fallback storage él.");
+                window.App.debuglog("Nincs LocalStorage, fallback storage él.");
                 return false;
             },
             /** fallback storage object */
             removeItem: function() {
-                window.app.debuglog("Nincs LocalStorage, fallback storage él.");
+                window.App.debuglog("Nincs LocalStorage, fallback storage él.");
                 return false;
             }
         }
@@ -36,7 +36,7 @@ function driverlocal() {
     }
 }
 
-driverlocal.prototype.storage = null;
+DriverLocal.prototype.storage = null;
 
 /**
  * Adat kikérése a localStorage-ből.
@@ -44,10 +44,10 @@ driverlocal.prototype.storage = null;
  * @param string A változó neve amire kíváncsiak vagyunk.
  * @return NULL: ha a változó nem létezik, vagy null. Bármi más: a változó értéke.
  */
-driverlocal.prototype.getdata = function(what) {
+DriverLocal.prototype.getdata = function(what) {
     /** Ha a megadott paraméter nem string, akkor nem fogadjuk el, logolunk, és null-al térünk vissza */
     if (typeof(what) !== "string") {
-        window.app.debuglog("Érvénytelen paramétert kapott a driverlocal.getdata");
+        window.App.debuglog("Érvénytelen paramétert kapott a DriverLocal.getdata");
         return null;
     }
 
@@ -56,7 +56,7 @@ driverlocal.prototype.getdata = function(what) {
 
     if (retval === null) {
         /** Ha az adat null, akkor jó eséllyel még nem létezik az adat, logba üzenünk */
-        window.app.debuglog("NOTICE: Nincs a megadott adatnak (" + what + ") megfelelő változó.");
+        window.App.debuglog("NOTICE: Nincs a megadott adatnak (" + what + ") megfelelő változó.");
     }
 
     /** Visszatérünk az adattal legyen az bármi. */
@@ -72,17 +72,17 @@ driverlocal.prototype.getdata = function(what) {
  * @param data
  * @return {boolean}
  */
-driverlocal.prototype.setdata = function(name, data) {
+DriverLocal.prototype.setdata = function(name, data) {
 
     if (typeof(name) != "string" || typeof(data) == "undefined") {
         /** Érvénytelen hívás nem tudunk vele mit kezdeni. */
-        window.app.debuglog("Érvénytelen hívás történt a driverlocal.setdata függvényre");
+        window.App.debuglog("Érvénytelen hívás történt a DriverLocal.setdata függvényre");
         return false;
     }
 
     if (this.getdata(name) !== null) {
         /** Esélye van a változó felülírásnak NOTICE-t logolunk és megtesszük az írást. */
-        window.app.debuglog("NOTICE: Felülírás történt. Változó: " + name);
+        window.App.debuglog("NOTICE: Felülírás történt. Változó: " + name);
     }
 
     /** Tárolunk. */
@@ -91,15 +91,15 @@ driverlocal.prototype.setdata = function(name, data) {
     /** Ellenőrzés */
     if (this.getdata(name) != data) {
         /** Sikertelen adatmentés, vélhetően hibás localStorage miatt. */
-        window.app.debuglog("Sikertelen adatmentés. Változó neve: " + name + ". A változó tartalma: ");
-        window.app.debuglog(data);
+        window.App.debuglog("Sikertelen adatmentés. Változó neve: " + name + ". A változó tartalma: ");
+        window.App.debuglog(data);
         return false;
     }
 
     return true;
 }
 
-driverlocal.prototype.remove = function(what) {
+DriverLocal.prototype.remove = function(what) {
     if (this.storage.removeItem(what) === false) {
         return false; // A fallback mód miatt kell egy ilyen ág.
     }
@@ -109,7 +109,7 @@ driverlocal.prototype.remove = function(what) {
 /**
  * Amennyiben szükséges tudnunk kell resetelni a LocalStorage-t. Pl logout esetén.
  */
-driverlocal.prototype.reset = function() {
+DriverLocal.prototype.reset = function() {
     if (this.storage.reset() === false) {
         return false; // A fallback mód miatt kell egy ilyen ág.
     }

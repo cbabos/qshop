@@ -1,7 +1,7 @@
 /**
- * YourWeb Mobileapp/app.js
+ * YourWeb MobileApp/App.js
  *
- * A script a YourWeb mobilapp készítésekor való használatra készült.
+ * A script a YourWeb mobilApp készítésekor való használatra készült.
  * LGPL licence alatt szabadon felhasználható annak megkötései mellett.
  * Vonatkozó licence: http://www.gnu.org/licenses/lgpl.txt
  *
@@ -9,39 +9,39 @@
  */
 
 /**
- * Az app objektum kezeli az alkalmazás fő vezérlését.
+ * Az App objektum kezeli az alkalmazás fő vezérlését.
  * Támogatja a fejlesztői / produkciós módokat, külön API elérési domainekkel.
  */
-function app() {}
+function App() {}
 
 
-app.prototype.Langs = {};
-app.prototype.holder = $("div#applicationholder");
-app.prototype.history = []; // Verem, mindig a legutolsóra tudunk visszamenni vele.
+App.prototype.Langs = {};
+App.prototype.holder = $("div#applicationholder");
+App.prototype.history = []; // Verem, mindig a legutolsóra tudunk visszamenni vele.
 
 // Fejlesztési / Éles környezet: dev / prod
-app.prototype.mode = "dev";
-app.prototype.mode = "prod"; // Csak éles használathoz!
+App.prototype.mode = "dev";
+App.prototype.mode = "prod"; // Csak éles használathoz!
 
-app.prototype.prodHost = "http://acms.yourweb.hu";
-app.prototype.devHost = "http://dev.acms.com";
+App.prototype.prodHost = "http://acms.yourweb.hu";
+App.prototype.devHost = "http://dev.acms.com";
 
-app.prototype.lsqldbname = "dbname"; // Külön DisplayName-t nem definiálunk.
-app.prototype.lsqldbversion = "1.0";
-app.prototype.lSqlDbSize = 10 // megabájt!!!;
-app.prototype.store = null;
+App.prototype.lsqldbname = "dbname"; // Külön DisplayName-t nem definiálunk.
+App.prototype.lsqldbversion = "1.0";
+App.prototype.lSqlDbSize = 10 // megabájt!!!;
+App.prototype.store = null;
 
 /**
  * UI section
  */
-app.prototype.header = null;
-app.prototype.footer = null;
+App.prototype.header = null;
+App.prototype.footer = null;
 
-app.prototype._init = function() {
+App.prototype._init = function() {
     return false;
 }
 
-app.prototype.getHost = function() {
+App.prototype.getHost = function() {
     if (this.mode == "dev") {
         return this.devHost;
     } else {
@@ -49,19 +49,19 @@ app.prototype.getHost = function() {
     }
 }
 
-app.prototype.hideHeader = function() {
+App.prototype.hideHeader = function() {
     $("header.uiheader").animate({
         height: 0
     }, 100, 'ease-out');
 }
 
-app.prototype.showHeader = function() {
+App.prototype.showHeader = function() {
     $("header.uiheader").animate({
         height: "2em"
     }, 100, 'ease-in');
 }
 
-app.prototype.setHeader = function(show, title, backButton, buttons) {
+App.prototype.setHeader = function(show, title, backButton, buttons) {
     var _this = this;
 
     if (typeof(show) == "undefined") var show = false;
@@ -112,7 +112,7 @@ app.prototype.setHeader = function(show, title, backButton, buttons) {
     }
 }
 
-app.prototype.back = function() {
+App.prototype.back = function() {
     if ($("div#contentholder").children(".pleft").length > 0) {
         $("div#contentholder").children(".pcenter").addClass("pright").removeClass("pcenter")
             .on("transitionend", function() {
@@ -130,19 +130,19 @@ app.prototype.back = function() {
     }
 }
 
-app.prototype.debuglog = function(msg) {
+App.prototype.debuglog = function(msg) {
     if (this.mode == "dev") {
         console.log(msg);
     }
 }
 
-app.prototype.removeLastPage = function(container) {
+App.prototype.removeLastPage = function(container) {
     if ($(document).find("header").hasClass("withBackButton") == false) {
         container.find(".pleft").remove();
     }
 }
 
-app.prototype.drawUI = function(UI, bodyClass, Container) {
+App.prototype.drawUI = function(UI, bodyClass, Container) {
     var _this = this;
 
     if (typeof(Container) == "undefined" && $("div#contentholder").length == 0) {
@@ -203,8 +203,8 @@ app.prototype.drawUI = function(UI, bodyClass, Container) {
     $("body").addClass(bodyClass);
 }
 
-app.prototype.quit = function() {
-    navigator.app.exitapp();
+App.prototype.quit = function() {
+    navigator.App.exitApp();
 }
 
 Function.prototype.inheritsFrom = function(parentClassOrObject) {

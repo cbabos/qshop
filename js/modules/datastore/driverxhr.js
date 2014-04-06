@@ -6,13 +6,13 @@
  * csak egy query metódust tartalmaz.
  * Mindig az API feladata, hogy a kapott POST adatok alapján dolgozzon!
  * A kéréseknek mindenképpen tartalmaznia kell egy controller és egy action paramétert.
- * Ezzel biztosítjuk azt, hogy a driverxhr a megfelelő helyre tudjon kérést küldeni.
+ * Ezzel biztosítjuk azt, hogy a DriverXHR a megfelelő helyre tudjon kérést küldeni.
  *
  * User: Csaba
  * Date: 2013.05.25.
  * Time: 16:48
  */
-function driverxhr() {
+function DriverXHR() {
 
 }
 
@@ -22,16 +22,16 @@ function driverxhr() {
  * @param data Mindenképp tartalmaznia kell egy controller és egy action elemet.
  * @returns {$.Deferred}
  */
-driverxhr.prototype.query = function(data) {
+DriverXHR.prototype.query = function(data) {
     var defer = new $.Deferred();
     if (typeof(data.controller) == "undefined" || typeof(data.action) == "undefined") {
-        window.app.debuglog("Érvénytelen XHR hívási kísérlet, nincs controller és/vagy action");
+        window.App.debuglog("Érvénytelen XHR hívási kísérlet, nincs controller és/vagy action");
         defer.resolve(false);
         return defer;
     }
 
     $.ajax({
-        url: window.app.getHost() + "/" + data.controller + "/api/" + data.action,
+        url: window.App.getHost() + "/" + data.controller + "/api/" + data.action,
         data: data,
         dataType: "json",
         type: "post",

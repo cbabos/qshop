@@ -177,4 +177,4 @@ User.prototype.checkLogin = function(response) {
     }
 }
 
-User.inheritsFrom(app);
+User.inheritsFrom(App);
