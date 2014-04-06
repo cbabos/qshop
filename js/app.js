@@ -23,7 +23,7 @@ App.prototype.Langs = {};
  * Az alkalmazás ebben a holderben fog megjelenni.
  * @type {Object}
  */
-App.prototype.holder = $("div#applicationholder");
+App.prototype.holder = $('div#applicationholder');
 /**
  * Az alkalmazáson belüli helyváltoztatási állapotokat tároljuk
  * (aka window.history egy mobilappnak)
@@ -35,26 +35,26 @@ App.prototype.history = []; // Verem, mindig a legutolsóra tudunk visszamenni v
  * Környezet beállítása (dev vagy prod mód)
  * @type {String}
  */
-App.prototype.mode = "prod";
+App.prototype.mode = 'prod';
 
 /** 
  * Éles környezet API url-je
  * @type {String}
  */
-App.prototype.prodHost = "http://acms.yourweb.hu";
+App.prototype.prodHost = 'http://acms.yourweb.hu';
 /** 
  * Fejlesztői környezet API url-je
  * @type {String}
  */
-App.prototype.devHost = "http://dev.acms.com";
+App.prototype.devHost = 'http://dev.acms.com';
 
 /** 
  * LocalStorage adatbázis neve.
  * @type {String}
  */
-App.prototype.lsqldbname = "dbname"; // Külön DisplayName-t nem definiálunk.
-App.prototype.lsqldbversion = "1.0";
-App.prototype.lSqlDbSize = 10 // megabájt!!!;
+App.prototype.lsqldbname = 'dbname'; // Külön DisplayName-t nem definiálunk.
+App.prototype.lsqldbversion = '1.0';
+App.prototype.lSqlDbSize = 10; // megabájt!!!
 App.prototype.store = null;
 
 /**
@@ -64,52 +64,59 @@ App.prototype.header = null;
 App.prototype.footer = null;
 
 App.prototype._init = function() {
+    'use strict';
     return false;
-}
+};
 
 App.prototype.getHost = function() {
-    if (this.mode == "dev") {
+    'use strict';
+    if (this.mode === 'dev') {
         return this.devHost;
     } else {
         return this.prodHost;
     }
-}
+};
 
 App.prototype.hideHeader = function() {
-    $("header.uiheader").animate({
+    'use strict';
+    $('header.uiheader').animate({
         height: 0
     }, 100, 'ease-out');
-}
+};
 
 App.prototype.showHeader = function() {
-    $("header.uiheader").animate({
-        height: "2em"
+    'use strict';
+    $('header.uiheader').animate({
+        height: '2em'
     }, 100, 'ease-in');
-}
+};
 
 App.prototype.setHeader = function(show, title, backButton, buttons) {
+    'use strict';
     var _this = this;
 
-    if (typeof(show) == "undefined") var show = false;
+    if (typeof(show) === 'undefined') {
+        show = false;
+    }
 
     // Ha nem kérünk header-t akkor benullozzuk.
-    if (show == false) {
+    if (show === false) {
         this.header = null;
         return;
     }
 
     // Ha kérünk, akkor szimplán egy header tag-et hozunk létre.
-    this.header = $('<header>').addClass("uiheader");
+    this.header = $('<header>').addClass('uiheader');
 
     // Gombok hozzáadása - float right okán itt csináljuk.
-    if (typeof(buttons) != "undefined") {
-        var btnHolder = $('<span>').addClass("buttons");
-        for (i in buttons) {
-            var btn = $("<button></button>");
+    if (typeof(buttons) !== 'undefined') {
+        var btnHolder = $('<span>').addClass('buttons');
+        for (var i in buttons) {
+            var btn = $('<button></button>');
             btn.append(buttons[i].label);
-            btn.on("click", buttons[i].callback);
-            if (typeof(buttons[i]['class']) != "undefined") {
-                btn.att("class", buttons[i]['class']);
+            btn.on('click', buttons[i].callback);
+            if (typeof(buttons[i]['class']) !== 'undefined') {
+                btn.att('class', buttons[i]['class']);
             }
             btnHolder.append(btn);
         }
@@ -118,86 +125,85 @@ App.prototype.setHeader = function(show, title, backButton, buttons) {
     }
 
     // BackButton hozzáadása
-    if (typeof(backButton) != "undefined") {
-        this.header.addClass("withBackButton");
+    if (typeof(backButton) !== 'undefined') {
+        this.header.addClass('withBackButton');
 
-        var btn =
-            $('<button></button>').on("click", function() {
+        var newbtn =
+            $('<button></button>').on('click', function() {
                 _this.back();
             });
 
         this.header.append(
-            $('<span></span>').addClass('backbuttonholder').append(btn)
+            $('<span></span>').addClass('backbuttonholder').append(newbtn)
         );
     }
 
     // Title hozzáadása
-    if (typeof(title) != "undefined") {
-        if (typeof(title) == "string") title = $('<span>').addClass("title").html(title);
+    if (typeof(title) !== 'undefined') {
+        if (typeof(title) === 'string') {
+            title = $('<span>').addClass('title').html(title);
+        }
         this.header.append(title);
     }
-}
+};
 
 App.prototype.back = function() {
-    if ($("div#contentholder").children(".pleft").length > 0) {
-        $("div#contentholder").children(".pcenter").addClass("pright").removeClass("pcenter")
-            .on("transitionend", function() {
+    'use strict';
+    if ($('div#contentholder').children('.pleft').length > 0) {
+        $('div#contentholder').children('.pcenter').addClass('pright').removeClass('pcenter')
+            .on('transitionend', function() {
                 $(this).remove();
-            }).on("oTransitionEnd", function() {
+            }).on('oTransitionEnd', function() {
                 $(this).remove();
-            }).on("webkitTransitionEnd", function() {
+            }).on('webkitTransitionEnd', function() {
                 $(this).remove();
-            });;
-        $("div#contentholder").children(".pleft").addClass("pcenter").removeClass("pleft");
+            });
+        $('div#contentholder').children('.pleft').addClass('pcenter').removeClass('pleft');
     } else {
-        if (confirm("Biztosan ki szeretnél lépni?")) {
+        if (window.confirm('Biztosan ki szeretnél lépni?')) {
             this.quit();
         }
     }
-}
+};
 
 App.prototype.debuglog = function(msg) {
-    if (this.mode == "dev") {
+    'use strict';
+    if (this.mode === 'dev') {
         console.log(msg);
     }
-}
+};
 
 App.prototype.removeLastPage = function(container) {
-    if ($(document).find("header").hasClass("withBackButton") == false) {
-        container.find(".pleft").remove();
+    'use strict';
+    if ($(document).find('header').hasClass('withBackButton') === false) {
+        container.find('.pleft').remove();
     }
-}
+};
 
 App.prototype.drawUI = function(UI, bodyClass, Container) {
+    'use strict';
     var _this = this;
 
-    if (typeof(Container) == "undefined" && $("div#contentholder").length == 0) {
-        var Container = $("<div></div>").attr("id", "contentholder");
-    } else if (typeof(Container) == "undefined") {
-        var Container = $("div#contentholder");
+    if (typeof(Container) === 'undefined' && $('div#contentholder').length === 0) {
+        Container = $('<div></div>').attr('id', 'contentholder');
+    } else if (typeof(Container) === 'undefined') {
+        Container = $('div#contentholder');
     }
 
-    /**
-     * Footer kirajzolás
-     */
-    /*if (this.footer != null) {
-		this.holder.append(this.footer);
-		this.footer = null;
-	}*/
-
-    var showAnim = true;
-    if (Container.find(".pcenter").length > 0) {
-        var UIC = $("<div></div>").addClass("page pright");
+    var showAnim = true,
+        UIC = null;
+    if (Container.find('.pcenter').length > 0) {
+        UIC = $('<div></div>').addClass('page pright');
     } else {
-        var UIC = $("<div></div>").addClass("page pcenter");
+        UIC = $('<div></div>').addClass('page pcenter');
         showAnim = false;
     }
 
     /**
      * Header kirajzolása
      */
-    $("header.uiheader").remove();
-    if (this.header != null) {
+    $('header.uiheader').remove();
+    if (this.header !== null) {
         UIC.append(this.header);
         this.header = null;
     }
@@ -208,16 +214,17 @@ App.prototype.drawUI = function(UI, bodyClass, Container) {
     this.holder.append(Container);
 
     setTimeout(function() {
-        if (Container.find(".pcenter").length > 0 && showAnim) {
-            if (Container.find(".pleft").length > 0)
-                Container.find(".pleft").remove();
-            Container.find(".pcenter").removeClass("pcenter").addClass("pleft");
-            Container.find(".pright").removeClass("pright").addClass("pcenter")
-                .on("transitionend", function() {
+        if (Container.find('.pcenter').length > 0 && showAnim) {
+            if (Container.find('.pleft').length > 0) {
+                Container.find('.pleft').remove();
+            }
+            Container.find('.pcenter').removeClass('pcenter').addClass('pleft');
+            Container.find('.pright').removeClass('pright').addClass('pcenter')
+                .on('transitionend', function() {
                     _this.removeLastPage(Container);
-                }).on("oTransitionEnd", function() {
+                }).on('oTransitionEnd', function() {
                     _this.removeLastPage(Container);
-                }).on("webkitTransitionEnd", function() {
+                }).on('webkitTransitionEnd', function() {
                     _this.removeLastPage(Container);
                 });
         }
@@ -225,16 +232,23 @@ App.prototype.drawUI = function(UI, bodyClass, Container) {
 
 
 
-    if (typeof(bodyClass) == "undefined") var bodyClass = "";
-    $("body").addClass(bodyClass);
-}
+    if (typeof(bodyClass) === 'undefined') {
+        bodyClass = '';
+    }
+    $('body').addClass(bodyClass);
+};
 
 App.prototype.quit = function() {
+    'use strict';
     navigator.App.exitApp();
-}
+};
 
-Function.prototype.inheritsFrom = function(parentClassOrObject) {
-    if (parentClassOrObject.constructor == Function) $.extend(this.prototype, new parentClassOrObject);
-    else $.extend(this.prototype, parentClassOrObject);
+Function.prototype.inheritsFrom = function(ParentClassOrObject) {
+    'use strict';
+    if (ParentClassOrObject.constructor === Function) {
+        $.extend(this.prototype, new ParentClassOrObject());
+    } else {
+        $.extend(this.prototype, ParentClassOrObject);
+    }
     return this;
-}
+};

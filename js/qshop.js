@@ -13,43 +13,41 @@
  *      is meg kellene csinálni, úgyhogy valamilyen helyi db-t is kéne erre használni.
  */
 
+/* jshint -W117 */
 /**
  * Az App objektum kezeli az alkalmazás fő vezérlését.
  * Támogatja a fejlesztői / produkciós módokat, külön API elérési domainekkel.
  */
-QShop.prototype = new App();
-
 function QShop() {
+    'use strict';
     /** App specifikus beállítások */
-    this.lsqldbname = "QShop";
-    this.lsqldbversion = "1.0";
+    this.lsqldbname = 'QShop';
+    this.lsqldbversion = '1.0';
 
     /** Elindítjuk az _init metódust. */
     this._init();
 }
 
+QShop.prototype = new App();
 QShop.prototype._init = function() {
-    var _this = this;
+    'use strict';
 
-    /** Adattároló */
-    //this.store = new DataStore();
-
-
-    document.addEventListener("backbutton", function() {
+    document.addEventListener('backbutton', function() {
         window.App.back();
     });
-}
+};
 
 QShop.prototype.start = function() {
-    var _this = this;
-    user = new User();
+    'use strict';
+    var _this = this,
+        user = new User();
 
-    if (user.data.isLoggedin() == false) {
+    if (user.data.isLoggedin() === false) {
         var login = user.login();
         login.done(function() {
             _this.drawUI(
-                $("<div>Bejelentkezett</div>").append(
-                    $("<button>Kijelentkezés</button>").click(function() {
+                $('<div>Bejelentkezett</div>').append(
+                    $('<button>Kijelentkezés</button>').click(function() {
                         user.logout();
                         window.App.start();
                     })
@@ -58,12 +56,12 @@ QShop.prototype.start = function() {
         });
     } else {
         _this.drawUI(
-            $("<div>Bejelentkezett</div>").append(
-                $("<button>Kijelentkezés</button>").click(function() {
+            $('<div>Bejelentkezett</div>').append(
+                $('<button>Kijelentkezés</button>').click(function() {
                     user.logout();
                     window.App.start();
                 })
             )
         );
     }
-}
+};
