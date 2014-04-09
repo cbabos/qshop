@@ -85,4 +85,8 @@ module.exports = function(grunt) {
         'processhtml', 'htmlmin',
     ]);
 
+    grunt.registerTask('lint', [
+        'jshint', 'csslint', 'autoprefixer'
+    ]);
+
 };
